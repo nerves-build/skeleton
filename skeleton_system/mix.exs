@@ -1,14 +1,13 @@
-defmodule NervesSystemRpi0.Mixfile do
+defmodule SkeletonSystem.Mixfile do
   use Mix.Project
 
-  @app :nerves_system_rpi0
   @version Path.join(__DIR__, "VERSION")
     |> File.read!
     |> String.trim
 
   def project do
     [
-      app: @app,
+      app: :skeleton_system,
       version: @version,
       elixir: "~> 1.4",
       compilers: Mix.compilers() ++ [:nerves_package],
@@ -27,9 +26,9 @@ defmodule NervesSystemRpi0.Mixfile do
   def nerves_package do
     [
       type: :system,
-      artifact_url: [
-        "https://github.com/nerves-project/#{@app}/releases/download/v#{@version}/#{@app}-v#{@version}.tar.gz"
-      ],
+#      artifact_url: [
+#        "https://github.com/nerves-project/#{@app}/releases/download/v#{@version}/#{@app}-v#{@version}.tar.gz"
+#      ],
       platform: Nerves.System.BR,
       platform_config: [
         defconfig: "nerves_defconfig"
@@ -49,16 +48,15 @@ defmodule NervesSystemRpi0.Mixfile do
 
   defp description do
     """
-    Nerves System - Raspberry Pi Zero and Zero W
+    Skeleton System - Sample system including Python and Numpy support
     """
   end
 
   defp package do
     [
-      maintainers: ["Timothy Mecklem", "Frank Hunleth"],
+      maintainers: ["Steven Fuchs"],
       files: package_files(),
       licenses: ["Apache 2.0"],
-      links: %{"Github" => "https://github.com/nerves-project/#{@app}"}
     ]
   end
 

@@ -67,6 +67,7 @@ defmodule Fw.Mixfile do
 
   def system("rpi"), do: [{:nerves_system_rpi, ">= 0.0.0", runtime: false}]
   def system("rpi0"), do: [{:nerves_system_rpi0, ">= 0.0.0", runtime: false}]
+  def system("skeleton_system"), do: [{:skeleton_system, path: "../skeleton_system", runtime: false}]
   def system("rpi2"), do: [{:nerves_system_rpi2, ">= 0.0.0", runtime: false}]
   def system("rpi3"), do: [{:nerves_system_rpi3, ">= 0.0.0", runtime: false}]
   def system("bbb"), do: [{:nerves_system_bbb, ">= 0.0.0", runtime: false}]

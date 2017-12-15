@@ -51,8 +51,8 @@ defmodule Fw.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   def deps do
-    [{:nerves, "~> 0.7", runtime: false}] ++
-    deps(@target)
+    [{:nerves, "~> 0.7", runtime: false},
+     {:ui, path: "../ui"}] ++ deps(@target)
   end
 
   # Specify target specific dependencies
@@ -60,7 +60,8 @@ defmodule Fw.Mixfile do
   def deps(target) do
     [
       {:bootloader, "~> 0.1"},
-      {:nerves_runtime, "~> 0.4"}
+      {:nerves_runtime, "~> 0.4"},
+      {:nerves_init_gadget, "~> 0.2"}
     ] ++ system(target)
   end
 
